@@ -1,11 +1,26 @@
 {
   "name": "openai-auth",
-  "version": "1.0.0",
+  "version": "1.0.41",
   "description": "Get access tokens for openai by email.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
+    }
   },
   "author": "nekoro",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.13",
+    "husky": "^8.0.2",
+    "lint": "^0.8.19",
+    "prettier": "^2.8.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4"
+  }
 }
